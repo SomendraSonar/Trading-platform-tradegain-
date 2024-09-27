@@ -4,14 +4,44 @@
     box-sizing: border-box;
     
 }
-.header{
+/* .header{
     width: 100%;
     height: 100vh;
     background-image: url(images/background.jpg);
     background-position: center;
     background-size: cover;
     
+} */
+.header {
+    width: 100%;
+    min-height: 100vh; /* Allow it to expand with content */
+    background-image: url(images/background.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 0px; /* Add some padding to keep content away from edges */
+    box-sizing: border-box; /* Ensure padding is included in width calculations */
+    display: flex;
+    align-items: center; /*Vertically center content*/
+    /* justify-content: center; Horizontally center content */
+    /* text-align: center; Ensure text is centered */
 }
+
+.header-content {
+    max-width: 90%; /* Constrain content width for smaller screens */
+    margin: auto;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .header {
+        padding: 40px 20px; /* Increase padding on smaller screens */
+    }
+
+    .header-content {
+        font-size: 1.2rem; /* Adjust font size for better readability */
+    }
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -156,7 +186,7 @@ ul li p{
 
 /* content  */
 .content{
-    margin-top: 12%;
+    margin-top: 1%;
     margin-left: 60px;
 }
 .content h1{
@@ -178,15 +208,17 @@ ul li p{
 
 .content .btn{
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 10px;
     background-color: #0267ff;
     color: #fff;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 13px 34px;
     border-radius: 30px;
 }
 
-
+.container{
+    margin-top: 105px;
+}
 .coin-list{
     position: absolute;
     right: 10%;
@@ -240,12 +272,11 @@ ul li p{
 .flexi{
     display: flex;
 }
-.big{
-    /* margin: 300px; */
-    /* padding : 100px; */
+/* .big{
+    
     padding-top: 200px;
     padding-left: 500%;
-    /* font-family: 'Courier New', Courier, monospace; */
+    
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
 }
@@ -289,15 +320,80 @@ ul li p{
         
     }
 
+} */
+
+.big {
+    padding-top: 15vh; /* Use viewport height for padding */
+    padding-left: 10%; /* Adjust padding for responsiveness */
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-align: center; /* Center the text for smaller screens */
 }
 
-.btnss{
+.pp1, .pp2 {
+    font-size: 5vw; /* Use viewport width for font size scaling */
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    letter-spacing: 15px;
+    color: #0e3742;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+    line-height: 0.7em;
+    outline: none;
+    animation: animate 5s linear infinite;
+}
+
+/* Adjust specific padding for .pp1 */
+.pp1 {
+    padding-left: 5%; /* Reduce padding for responsiveness */
+}
+
+/* Keyframes for animation */
+@keyframes animate {
+    0%, 18%, 20%, 50%, 1%, 60%, 65.1%, 80%, 90.1%, 92% {
+        color: #5fcae5;
+        box-shadow: none;
+    }
+    18.1%, 20.1%, 30%, 60.1%, 80.1%, 90%, 92.1%, 100% {
+        color: #fff;
+        /* text-shadow: 0 0 10px #5fcae5,
+                     0 0 20px #5fcae5,
+                     0 0 40px #ecf3f1,
+                     0 0 80px #0df1a9,
+                     0 0 160px #d8e1de; */
+    }
+}
+
+/* Responsive breakpoints for smaller devices */
+@media (max-width: 1200px) {
+    .pp1, .pp2 {
+        font-size: 8vw; /* Increase font size for larger screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .big {
+        padding-top: 10vh;
+        padding-left: 5%;
+    }
+    .pp1, .pp2 {
+        font-size: 6vw; /* Smaller font size for smaller screens */
+        letter-spacing: 10px; /* Reduce letter spacing for readability */
+    }
+}
+
+@media (max-width: 480px) {
+    .pp1, .pp2 {
+        font-size: 4vw; /* Further reduce font size */
+        letter-spacing: 5px; /* Adjust letter spacing */
+    }
+}
+
+/* .btnss{
     display: flex;
     justify-content: space-between;
-    /* margin-left: 400px;
-    padding: 50px;
-    margin-right: 50px; */
-    /* border-spacing: 500px; */
     align-items: center;
     margin: 50px;
     margin-left: 500px;
@@ -305,12 +401,53 @@ ul li p{
     font-size: 20px;
     
 
+} */
+
+.btnss {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap in case of narrow screens */
+    margin: 20px auto; /* Center the buttons with auto margins */
+    padding: 20px; /* Add some padding */
+    max-width: 90%; /* Limit the width for responsiveness */
+    font-size: 1.2rem; /* Use relative font size */
 }
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .btnss {
+        font-size: 1.1rem; /* Adjust font size for medium screens */
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .btnss {
+        font-size: 1rem; /* Reduce font size for smaller screens */
+        justify-content: center; /* Center buttons on smaller screens */
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
+@media (max-width: 480px) {
+    .btnss {
+        font-size: 0.9rem; /* Smaller font for very small screens */
+        flex-direction: column; /* Stack buttons vertically */
+        margin-left: 0;
+        margin-right: 0;
+        padding: 10px; /* Adjust padding */
+    }
+}
+
+
 .btn1{
     border: none;
 }
 
-.mNExtcontent{
+/* .mNExtcontent{
     background-color:rgb(24, 22, 22) ;
 
 }
@@ -321,7 +458,7 @@ ul li p{
     margin-right: 20%;
     padding: 10px;
     color: white;
-    /* background-color:rgb(24, 22, 22) ; */
+    
     border: 2px solid;
     border-image: linear-gradient(45deg, red, orange, yellow, green, blue, purple) 1;
 }
@@ -333,23 +470,21 @@ ul li p{
     margin-left: 15%;
     padding: 10px;
     color: white;
-    /* background-color:rgb(24, 22, 22) ; */
+    
     border: 2px solid white;
     box-shadow: 0 0 15px white;
-    /* border-image: linear-gradient(45deg, red, orange, yellow, green, blue, purple) 1; */
+
 }
 .br{
-    /* margin: 10px; */
-    /* padding: 10px; */
+    
     margin-left: 10px;
     margin-right: 100px;
-    /* line-height-step: 10px; */
-    /* word-spacing: 10px; */
+    
     justify-content: space-between;
     font-size: 25px;
 }
 .br1{
-    /* justify-content: space-between; */
+    
     
     padding: 10px;
 
@@ -358,18 +493,133 @@ ul li p{
     margin: 10px;
 }
 .bp2 img{
-    /* height: 100px;
-    width: 100px;
-    margin top: 500px; */
+    
     background-size: cover;
     height: 300px;
     margin: 20px;
     margin-right: 80px;
     background-color:rgb(24, 22, 22);
+} */
+
+/* General background color for content */
+.mNExtcontent {
+    background-color: rgb(24, 22, 22);
 }
 
+/* Main box styling */
+.mbox {
+    justify-content: center;
+    text-align: center;
+    margin: 20px auto; /* Center the content */
+    padding: 20px;
+    color: white;
+    border: 2px solid;
+    border-image: linear-gradient(45deg, red, orange, yellow, green, blue, purple) 1;
+    max-width: 80%; /* Responsive width */
+    box-shadow: 0 0 15px white;
+    margin-left: 10px;
+}
 
-.se{
+/* Box with a different design */
+.mbox1 {
+    justify-content: center;
+    text-align: center;
+    margin: 20px auto; /* Center content with auto margins */
+    padding: 20px;
+    color: white;
+    border: 2px solid white;
+    box-shadow: 0 0 15px white;
+    max-width: 85%; /* Adjust width for responsiveness */
+    margin-right: 10px;
+}
+
+/* Responsive layout for list items */
+.br {
+    display: flex;
+    flex-wrap: wrap; /* Ensure content wraps when necessary */
+    justify-content: space-between;
+    font-size: 1.5rem; /* Use responsive font sizes */
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px;
+}
+
+/* Button container */
+.br1 {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Wrap buttons on smaller screens */
+}
+
+.br1 .btn {
+    margin: 10px;
+}
+
+/* Image in the right column */
+.bp2 img {
+    background-size: cover;
+    width: 100%; /* Full width for responsiveness */
+    height: auto; /* Auto height to maintain aspect ratio */
+    max-height: 300px; /* Max height to prevent it from becoming too large */
+    margin: 20px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+    .mbox, .mbox1 {
+        max-width: 90%; /* Increase content width on larger screens */
+    }
+
+    .br {
+        font-size: 1.2rem; /* Slightly reduce font size */
+    }
+
+    .bp2 img {
+        max-height: 250px; /* Smaller image for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .mbox, .mbox1 {
+        max-width: 95%; /* Full width for smaller screens */
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .br {
+        flex-direction: column; /* Stack list items vertically */
+        font-size: 1rem;
+    }
+
+    .bp2 img {
+        max-height: 200px; /* Smaller image for tablets */
+    }
+
+    .br1 .btn {
+        font-size: 0.9rem; /* Smaller buttons */
+    }
+}
+
+@media (max-width: 480px) {
+    .mbox, .mbox1 {
+        max-width: 100%; /* Full width for mobile devices */
+        padding: 10px; /* Reduce padding for mobile */
+    }
+
+    .br {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+
+    .bp2 img {
+        max-height: 150px; /* Adjust image size for mobile */
+    }
+
+    .br1 .btn {
+        font-size: 0.8rem; /* Smaller buttons for mobile */
+    }
+}
+
+/* .se{
     display: flex;
     justify-content: center;
     width: 100%;
@@ -425,11 +675,142 @@ ul li p{
 }
 .searchEngine form button img{
     width: 50px;
+} */
+
+/* Search engine container */
+.se {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 65vh;
+    background-color: rgb(24, 22, 22);
+    margin-bottom: 10px;
+}
+
+/* Main search box */
+.searchEngine {
+    padding: 30px;
+    box-shadow: 0 0 15px rgb(235, 10, 10);
+    border-radius: 5px;
+    width: 80%; /* Use percentage for responsive width */
+    max-width: 700px; /* Cap max width */
+    margin: 0 auto; /* Center the box */
+}
+
+/* Logo section */
+.searchEngine .logo {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Logo image */
+.searchEngine .logo img {
+    width: 80px; /* Make logo smaller for responsiveness */
+}
+
+/* Title */
+.searchEngine .logo .title {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Form container */
+.searchEngine form {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    background: linear-gradient(45deg, #2a274a61, #c4c2c257);
+    padding: 10px 15px;
+    border-radius: 50px;
+    box-shadow: 0 0 3px #ccc;
+}
+
+/* Input field */
+.searchEngine form input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 90%;
+    font-size: 1rem;
+}
+
+/* Button */
+.searchEngine form button {
+    padding: 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Button image */
+.searchEngine form button img {
+    width: 40px; /* Make button icon smaller for responsiveness */
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+    .searchEngine {
+        width: 90%; /* Increase width on smaller screens */
+        padding: 20px; /* Reduce padding */
+    }
+
+    .searchEngine .logo img {
+        width: 70px; /* Reduce logo size */
+    }
+
+    .searchEngine form {
+        padding: 8px 10px; /* Adjust padding inside the form */
+    }
+
+    .searchEngine form input {
+        font-size: 0.9rem; /* Adjust input font size */
+    }
+
+    .searchEngine form button img {
+        width: 35px; /* Make button icon smaller */
+    }
+}
+
+@media (max-width: 480px) {
+    .searchEngine {
+        width: 95%; /* Max width for very small screens */
+        padding: 15px; /* Further reduce padding */
+    }
+
+    .searchEngine .logo img {
+        width: 60px; /* Smaller logo */
+    }
+
+    .searchEngine form {
+        padding: 6px 8px; /* Reduce padding in the form */
+    }
+
+    .searchEngine form input {
+        font-size: 0.8rem; /* Reduce input font size */
+    }
+
+    .searchEngine form button img {
+        width: 30px; /* Smaller icon */
+    }
 }
 
 
 
-
+@media (max-width: 768px) {
+    body {
+      background-size: contain;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    body {
+      background-size: cover;
+    }
+  }
+  
 
 
 

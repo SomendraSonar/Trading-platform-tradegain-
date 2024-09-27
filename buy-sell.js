@@ -1,5 +1,5 @@
 // Initial balance and holdings from localStorage or set default values
-let balance = parseFloat(localStorage.getItem("balance")) || 1000000;
+let balance = parseFloat(localStorage.getItem("balance")) || 100000;
 let btcHoldings = parseFloat(localStorage.getItem("btcHoldings")) || 0;
 let ethHoldings = parseFloat(localStorage.getItem("ethHoldings")) || 0;
 let bnbHoldings = parseFloat(localStorage.getItem("bnbHoldings")) || 0;
