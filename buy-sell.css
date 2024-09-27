@@ -1,133 +1,122 @@
-*{
+/* crypto\ coin/bg1.png */
+
+/* General reset */
+* {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box; /* Ensure padding and borders are included in element's total width and height */
 }
-body{
+
+body {
     background-image: url(crypto\ coin/bg1.png);
-    /* background-color: aqua; */
-    /* background-repeat: no-repeat; */
     height: 100%;
     width: 100%;
     background-size: cover;
+    background-position: center;
     overflow-x: hidden;
+    font-size: 16px;
 }
-.balance{
+
+/* Balance section */
+.balance {
     margin-top: 10px;
-    /* margin: 2px; */
     margin-left: 5px;
     margin-right: 5px;
     display: flex;
     justify-content: space-evenly;
-    /* border: 1px solid white; */
-    /* box-shadow: 5px grey; */
-    font-size: 20px;
+    font-size: 1.25rem; /* Use rem for relative sizing */
     color: #fc0ed4;
     border-radius: 30px;
     align-items: center;
     text-align: center;
-    /* margin: 2px; */
     padding: 2px;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
 }
-/* .coincard{
-    border: 1px solid white;
-} */
+
+/* Coin list */
 .coin-list {
     display: flex;
     align-items: center;
-    /* border: 1px solid white; */
+    flex-wrap: wrap; /* Allows coin items to wrap on smaller screens */
 }
 
 .coin {
     display: flex;
     align-items: center;
-    font-size: 15px;
-    margin: 5px 5px;
+    font-size: 1rem;
+    margin: 5px;
     color: #ff960b;
-    padding: 2px 20px;
+    padding: 5px 15px;
     border-radius: 8px;
-    margin-left: 10px;
-    /* border: 1px solid white; */
-}
-.ctitle{
-    margin-left: 40px;
-}
-.ctitle p,h3{
-    font-size: 20px;
+    flex: 1 1 auto; /* Flexible width based on available space */
 }
 
+/* Coin title */
+.ctitle {
+    margin-left: 20px;
+}
+
+.ctitle p, h3 {
+    font-size: 1.2rem; /* Use relative units */
+}
+
+/* Coin main card */
 .coinmain {
     border: 1px solid rgb(159, 51, 51);
-    /* box-shadow: 1px 1px 1px 1px rgb(216, 211, 214); */
-    border-radius: 12px;
-    margin-right: 10px;
+    border-radius: 20px;
+    margin-right: 14px;
     padding: 10px;
-    width: 300px;
-    height:170px
+    width: 100%;
+    max-width: 280px;
+    height: auto;
 }
-.cimgg{
+
+.cimgg {
     height: 50px;
 }
 
+/* Order form */
 .order-form {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    /* gap: 8px; */
+    flex-wrap: wrap; /* Wrap form elements on small screens */
 }
-select{
-    border: none; 
-    outline: none; 
-    background-color: transparent; 
-    /* appearance: none;  */
-    /* -webkit-appearance: none;  */
-    -moz-appearance: none; 
-    /* padding: 10px;  */
-    color: hotpink;
-}
-input{
-    /* border: none;  */
-    /* outline: none;  */
-    background-color: transparent; 
-    /* appearance: none;  */
-    /* -webkit-appearance: none;  */
-    /* -moz-appearance: none;  */
-    /* padding: 10px;  */
-    color: hotpink;
 
+select, input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: hotpink;
 }
-button{
+
+/* Buttons */
+button {
     background-color: transparent;
     border: none;
     border-radius: 30px;
 }
-/* button:hover{
-    background-color: white;
-    color: black;
-} */
-.order-history{
+
+/* Order history */
+.order-history {
     height: 300px;
     width: 100%;
-    overflow: scroll;
-    /* scrollbar-color: green; */
-    /* overflow-wrap: normal ; */ 
-    
+    overflow: auto; /* Scroll only when necessary */
 }
 
+/* Order history table */
 #order-history-table {
     margin-top: 20px;
     width: 100%;
     border-collapse: collapse;
-    /* overflow: scroll; */
-    /* height: 200px; */
 }
-#order-history-table th{
+
+#order-history-table th {
     padding: 8px;
     text-align: center;
-    /* position: fixed; */
     background: blueviolet;
     color: #ff960b;
-
 }
 
 #order-history-table td {
@@ -136,5 +125,76 @@ button{
     color: aqua;
 }
 
+/* Media Queries for Responsive Design */
 
+/* For tablets */
+@media (max-width: 768px) {
+    .coin {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+    }
 
+    .coinmain {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .balance {
+        flex-direction: column;
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    .order-form {
+        flex-direction: column;
+        margin: 10px 0;
+    }
+
+    .order-history {
+        height: auto;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .coin {
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+
+    .coinmain {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .balance {
+        flex-direction: column;
+        font-size: 1rem;
+    }
+
+    .ctitle p, h3 {
+        font-size: 1rem;
+    }
+
+    .order-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    select, input {
+        font-size: 1rem;
+    }
+
+    .order-history {
+        height: auto;
+    }
+
+    #order-history-table th, #order-history-table td {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+}
