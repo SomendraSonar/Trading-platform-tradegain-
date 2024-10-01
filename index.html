@@ -9,6 +9,26 @@
     <link rel="stylesheet" href="index.css">
 </head>
   <body>
+
+     <!-- Preloader -->
+     <div class="preloader">
+        <div class="preloader-content">
+            <!-- Bitcoin image -->
+            <div class="bitcoin-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png" alt="Bitcoin Logo">
+            </div>
+            <!-- TradeGain name -->
+            <h1 class="tradegain-title">TradeGain</h1>
+            <!-- Loading bar -->
+            <div class="loading-bar">
+                <div class="loading-fill"></div>
+            </div>
+        </div>
+        <!-- Raining Bitcoins -->
+        <div class="falling-btc-corner"></div>
+    </div>
+
+    
     <div class="header">
         <div class="flexi">
     
@@ -115,6 +135,45 @@
 
     <div class="alert alert-primary" role="alert">
         ENJOY WONDERFULL EXPERIENCE WITH US
+      </div>
+    <div class="alert alert-primary" role="alert">
+        <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text"></span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "S&P 500 Index"
+      },
+      {
+        "proName": "FOREXCOM:NSXUSD",
+        "title": "US 100 Cash CFD"
+      },
+      {
+        "proName": "FX_IDC:EURUSD",
+        "title": "EUR to USD"
+      },
+      {
+        "proName": "BITSTAMP:BTCUSD",
+        "title": "Bitcoin"
+      },
+      {
+        "proName": "BITSTAMP:ETHUSD",
+        "title": "Ethereum"
+      }
+    ],
+    "showSymbolLogo": true,
+    "isTransparent": false,
+    "displayMode": "adaptive",
+    "colorTheme": "light",
+    "locale": "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
       </div>
 <div class="mb">
     <div class="big"></div>
@@ -263,6 +322,53 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
+
+
+
+window.addEventListener("load", () => {
+    const loadingFill = document.querySelector('.loading-fill');
+    const preloader = document.querySelector('.preloader');
+    const overallContent = document.getElementById('overall-content'); // Fixed the ID selection
+
+    // Start the loading fill animation
+    loadingFill.style.width = '100%';
+
+    // After the loading bar fills, move the black background up
+    setTimeout(() => {
+        preloader.style.animation = 'moveUp 1s ease-in-out forwards';
+        setTimeout(() => {
+            preloader.style.display = 'none'; // Hide the preloader
+            overallContent.classList.add('show'); // Show the main content
+        }, 1000); // Wait for the move-up animation to finish
+    }, 4000); // Duration to match the loading fill
+
+    // Start the falling Bitcoin animation
+    startFallingBitcoins();
+});
+
+function createFallingBitcoin() {
+    const bitcoin = document.createElement('img');
+    bitcoin.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png";
+    bitcoin.className = 'falling-btc-img';
+    
+    // Randomize size, position, and animation duration for each Bitcoin
+    bitcoin.style.width = Math.random() * 30 + 20 + 'px'; // Random size between 20px and 50px
+    bitcoin.style.left = Math.random() * 100 + 'vw'; // Random horizontal position (from left to right)
+    bitcoin.style.animationDuration = Math.random() * 2 + 3 + 's'; // Fall duration between 3s to 5s
+
+    document.querySelector('.falling-btc-corner').appendChild(bitcoin);
+
+    // Remove the Bitcoin after the animation completes
+    setTimeout(() => {
+        bitcoin.remove();
+    }, parseFloat(bitcoin.style.animationDuration) * 1000); // Remove after the animation duration
+}
+
+// Create more falling Bitcoins for a denser effect
+function startFallingBitcoins() {
+    setInterval(createFallingBitcoin, 400); // Increase frequency of Bitcoin creation (every 400ms)
+}
+
 //        ws = new WebSocket(' wss://fstream.binance.com/ws/btcusdt@trade');
 // price=0;
 // old_price=0;
